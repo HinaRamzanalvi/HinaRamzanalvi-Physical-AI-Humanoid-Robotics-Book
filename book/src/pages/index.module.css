@@ -1,0 +1,140 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+/* Hero Section */
+.heroBanner {
+  position: relative;
+  padding: 8rem 0; /* More vertical padding for a grander feel */
+  text-align: center;
+  color: white; /* Default text color for contrast */
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); /* Simple gradient background */
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+}
+
+.heroTitle {
+  font-size: 3.5rem; /* Larger title */
+  font-weight: 800; /* Bolder */
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem; /* Space between buttons */
+  margin-top: 2rem;
+}
+
+/* Animations */
+.fadeIn {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Latest Modules Section */
+.latestModulesSection {
+  padding: 4rem 0;
+  background-color: #f8f9fa; /* Light background for the section */
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #2d3748; /* Darker color for headings */
+}
+
+.moduleCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 2rem; /* Space between cards */
+  margin-top: 3rem;
+}
+
+.moduleCard {
+  background-color: white;
+  border-radius: 0.75rem; /* Rounded corners */
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  text-align: left;
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.moduleCard h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b6cb0; /* Primary color for module titles */
+  margin-bottom: 1rem;
+}
+
+.moduleCard p {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.moduleCardLink {
+  display: inline-flex;
+  align-items: center;
+  color: #3182ce;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.moduleCardLink:hover {
+  color: #2c5282;
+}
+
+.moduleCardLink::after {
+  content: '\2192'; /* Right arrow */
+  margin-left: 0.5rem;
+  transition: margin-left 0.3s ease;
+}
+
+.moduleCardLink:hover::after {
+  margin-left: 0.75rem;
+}

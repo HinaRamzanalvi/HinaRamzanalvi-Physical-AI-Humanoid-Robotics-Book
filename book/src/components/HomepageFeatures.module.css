@@ -1,0 +1,74 @@
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+/* Feature Cards */
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--ifm-color-gray-100); /* Simple light background */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 100%; /* Ensure cards have equal height */
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+[data-theme='dark'] .featureCard {
+  background-color: var(--ifm-color-gray-800);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .featureCard:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature Icon */
+.featureSvg {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 1.5rem;
+}
+
+/* Card Title */
+.featureCard h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .featureCard h3 {
+  color: var(--ifm-color-primary-lightest);
+}
+
+/* Card Description */
+.featureCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme='dark'] .featureCard p {
+  color: var(--ifm-color-gray-300);
+}
+
+/* Responsive */
+@media screen and (max-width: 996px) {
+  .featureCard {
+    margin-bottom: 2rem;
+  }
+}

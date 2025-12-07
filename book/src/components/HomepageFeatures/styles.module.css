@@ -1,0 +1,94 @@
+/* Hero Section */
+.hero--clean {
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%); /* Simple gradient background */
+  color: #333;
+}
+
+.hero--clean .hero__title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #4b6de3 0%, #6a8cff 100%);
+
+  -webkit-text-fill-color: transparent;
+}
+
+.hero--clean .hero__subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  color: #6c757d;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+/* Latest Modules Section */
+.latestModulesSection {
+  padding: 4rem 0;
+  background-color: #f8f9fa; /* Simple background color */
+  color: #333;
+}
+
+.latestModulesSection .sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.moduleCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.moduleCard {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.moduleCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #3752a3;
+}
+
+.moduleCard p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.moduleCard .button--secondary {
+  background-color: #7796ff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}

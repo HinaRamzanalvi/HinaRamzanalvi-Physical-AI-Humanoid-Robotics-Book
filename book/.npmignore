@@ -1,0 +1,27 @@
+# npm ignore for Docusaurus book project
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+build/
+.docusaurus/
+
+# Logs and environment files
+*.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Lock files (usually handled by .gitignore, but good to include for npm)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Editor and OS specific files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

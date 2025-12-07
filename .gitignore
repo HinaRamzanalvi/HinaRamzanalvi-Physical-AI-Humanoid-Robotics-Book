@@ -1,0 +1,62 @@
+# Git ignore for Physical AI & Humanoid Robotics Course
+
+# Node.js / Docusaurus
+node_modules/
+.docusaurus/
+build/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+*.egg-info/
+
+# C++
+build/
+bin/
+obj/
+out/
+*.o
+*.so
+*.a
+*.exe
+*.dll
+
+# C#/.NET
+bin/
+obj/
+*.user
+*.suo
+packages/
+
+# General
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.parcel-cache
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.nox/
+.pytype/
+.pylint.d/
+.envrc
+.python-version
+.tool-versions

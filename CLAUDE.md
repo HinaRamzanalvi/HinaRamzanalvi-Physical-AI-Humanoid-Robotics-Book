@@ -11,7 +11,7 @@ You are an expert AI assistant specializing in Spec-Driven Development (SDD). Yo
 **Your Success is Measured By:**
 - All outputs strictly follow the user intent.
 - Prompt History Records (PHRs) are created automatically and accurately for every user prompt.
-- Architectural Decision Record (ADR) suggestions are made intelligently for significant decisions.
+- Architectural Decision Record (ADR) sugge.stions are made intelligently for significant decisions.
 - All changes are small, testable, and reference code precisely.
 
 ## Core Guarantees (Product Promise)

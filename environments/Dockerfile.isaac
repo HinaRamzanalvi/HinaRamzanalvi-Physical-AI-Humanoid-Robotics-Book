@@ -1,0 +1,47 @@
+# Start from the ROS 2 Humble base image, which already has Ubuntu 22.04
+FROM osrf/ros:humble-desktop
+
+# Set environment variables for non-interactive installation
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ROS_DISTRO=humble
+ENV CUDA_VERSION=11.8 # Placeholder, check actual Isaac ROS compatibility
+ENV NVIDIA_DRIVER_VERSION=525 # Placeholder
+
+# Install common development tools, similar to ROS 2 Dockerfile
+RUN apt update && apt install -y \
+    build-essential \
+    cmake \
+    git \
+    vim \
+    curl \
+    wget \
+    python3-pip \
+    python3-rosdep \
+    python3-vcstool \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install NVIDIA CUDA toolkit and cuDNN (simplified for a Dockerfile)
+# This is a general approach; specific Isaac ROS versions might require different CUDA versions.
+# For a full Isaac Sim setup, refer to NVIDIA's official documentation.
+RUN apt update && apt install -y \
+    cuda-toolkit-$CUDA_VERSION \
+    libcudnn8 \
+    libcudnn8-dev \
+    --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
+# Initialize rosdep
+RUN rosdep init || true
+RUN rosdep update
+
+# Set up a workspace for Isaac ROS packages
+WORKDIR /isaac_ros_ws
+RUN mkdir -p src
+
+# Source ROS 2 setup file
+RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
+RUN echo "source /isaac_ros_ws/install/setup.bash" >> ~/.bashrc
+
+# Default command
+CMD ["bash"]

@@ -1,0 +1,186 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #5a7dff;
+  --ifm-color-primary-dark: #4b6de3;
+  --ifm-color-primary-darker: #4464cc;
+  --ifm-color-primary-darkest: #3752a3;
+  --ifm-color-primary-light: #6a8cff;
+  --ifm-color-primary-lighter: #7796ff;
+  --ifm-color-primary-lightest: #93aaff;
+
+  --ifm-color-secondary: #f0f2f5;
+  --ifm-color-text: #333;
+  --ifm-font-family-base: 'Inter', sans-serif;
+  --ifm-heading-font-family: 'Poppins', sans-serif;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-color-gray-100: #f8f9fa;
+  --ifm-color-gray-200: #e9ecef;
+  --ifm-color-gray-300: #dee2e6;
+  --ifm-color-gray-400: #ced4da;
+  --ifm-color-gray-500: #adb5bd;
+  --ifm-color-gray-600: #6c757d;
+  --ifm-color-gray-700: #495057;
+  --ifm-color-gray-800: #343a40;
+  --ifm-color-gray-900: #212529;
+
+  --hero-background-light: linear-gradient(135deg, #e0e7ff 0%, #ffffff 100%);
+  --hero-title-color-light: var(--ifm-color-gray-900);
+  --hero-subtitle-color-light: var(--ifm-color-gray-700);
+}
+
+/* Dark Mode */
+[data-theme='dark'] {
+  --ifm-color-primary: #7b9cff;
+  --ifm-color-primary-dark: #6283e3;
+  --ifm-color-primary-darker: #5978cc;
+  --ifm-color-primary-darkest: #4a64a3;
+  --ifm-color-primary-light: #89a7ff;
+  --ifm-color-primary-lighter: #97b0ff;
+  --ifm-color-primary-lightest: #b0c2ff;
+
+  --ifm-color-secondary: #212529;
+  --ifm-color-text: #e9ecef;
+
+  --hero-background-dark: linear-gradient(135deg, #1f2a4a 0%, #12182b 100%);
+  --hero-title-color-dark: #e9ecef;
+  --hero-subtitle-color-dark: #adb5bd;
+}
+
+/* Hero Section */
+.hero--clean {
+  --ifm-hero-background-color: var(--hero-background-light);
+  padding: 8rem 0;
+  text-align: center;
+  background: var(--hero-background-light);
+  color: var(--ifm-color-text);
+}
+
+[data-theme='dark'] .hero--clean {
+  background: var(--hero-background-dark);
+}
+
+.hero--clean .hero__title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--ifm-color-primary-dark), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero--clean .hero__subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  color: var(--hero-subtitle-color-light);
+}
+
+[data-theme='dark'] .hero--clean .hero__subtitle {
+  color: var(--hero-subtitle-color-dark);
+}
+
+.hero--clean .button--primary {
+  --ifm-button-color: white;
+  --ifm-button-background-color: var(--ifm-color-primary);
+  --ifm-button-border-color: var(--ifm-color-primary);
+  border-radius: 8px;
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Latest Modules Section */
+.latestModulesSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-color-gray-100);
+  color: var(--ifm-color-text);
+}
+
+[data-theme='dark'] .latestModulesSection {
+  background-color: var(--ifm-color-gray-900);
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.moduleCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.moduleCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: 0.2s ease-in-out;
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.moduleCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ifm-global-shadow-lg);
+}
+
+.moduleCard h3 {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .moduleCard h3 {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.moduleCard p {
+  font-size: 1rem;
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme='dark'] .moduleCard p {
+  color: var(--ifm-color-gray-400);
+}
+
+/* Navbar */
+.navbar {
+  --ifm-navbar-height: 4.5rem;
+  border-bottom: 1px solid var(--ifm-color-gray-200);
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid var(--ifm-color-gray-800);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary-darkest);
+}
+
+.navbar__item.navbar__link {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: 0.2s ease-in-out;
+}
+
+/* Sidebar */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-gray-200);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-gray-800);
+}
