@@ -1,0 +1,127 @@
+# OpenAPI Specification for RAG Chatbot API
+
+This document defines the API contracts for the RAG Chatbot feature based on the functional requirements.
+
+## Base Path
+All API endpoints are prefixed with `/api/v1`.
+
+## Authentication
+No authentication required for basic functionality. Optional session-based identification for persistent chat history.
+
+## Endpoints
+
+### POST /chat/query
+**Description**: Submit a query to the RAG chatbot
+**Function**: FR-001 (allow users to ask questions about the entire textbook content through a chat interface)
+
+**Request Body**:
+```json
+{
+  "query_text": "string (required) - The user's question",
+  "query_mode": "enum (required) - 'AskBook' or 'AskSelectedText'",
+  "selected_text": "string (optional) - Text selected by user for AskSelectedText mode",
+  "session_id": "string (optional) - Existing session ID, will be created if not provided"
+}
+```
+
+**Response**:
+```json
+{
+  "query_id": "string - Unique identifier for the query",
+  "session_id": "string - Session identifier",
+  "response_text": "string - The AI-generated response",
+  "citations": [
+    {
+      "module": "string - Module name",
+      "chapter": "string - Chapter name",
+      "section_title": "string - Section title",
+      "source_file": "string - Source file path"
+    }
+  ],
+  "confidence_score": "number - Confidence level (0.0-1.0)",
+  "status": "string - 'completed' or 'failed'"
+}
+```
+
+**Status Codes**:
+- 200: Query processed successfully
+- 400: Invalid request parameters
+- 500: Internal server error during processing
+
+---
+
+### GET /chat/session/{session_id}
+**Description**: Retrieve chat history for a specific session
+**Function**: FR-007 (store and maintain chat history for conversation context)
+
+**Path Parameters**:
+- `session_id`: string (required) - Unique identifier for the session
+
+**Response**:
+```json
+{
+  "session_id": "string",
+  "queries": [
+    {
+      "query_id": "string",
+      "query_text": "string",
+      "response_text": "string",
+      "created_at": "datetime",
+      "citations": "array of citation objects"
+    }
+  ],
+  "created_at": "datetime",
+  "updated_at": "datetime"
+}
+```
+
+**Status Codes**:
+- 200: Session retrieved successfully
+- 404: Session not found
+- 500: Internal server error
+
+---
+
+### POST /chat/session/{session_id}/clear
+**Description**: Clear chat history for a specific session
+**Function**: FR-007 (store and maintain chat history for conversation context)
+
+**Path Parameters**:
+- `session_id`: string (required) - Unique identifier for the session
+
+**Response**:
+```json
+{
+  "session_id": "string",
+  "message": "string - Confirmation message",
+  "cleared_at": "datetime"
+}
+```
+
+**Status Codes**:
+- 200: Session cleared successfully
+- 404: Session not found
+- 500: Internal server error
+
+---
+
+### GET /health
+**Description**: Check the health status of the RAG chatbot service
+**Function**: General operational requirement
+
+**Response**:
+```json
+{
+  "status": "string - 'healthy'",
+  "timestamp": "datetime",
+  "services": {
+    "vector_db": "string - status of vector database connection",
+    "llm": "string - status of LLM service connection",
+    "textbook_content": "string - status of textbook content availability"
+  }
+}
+```
+
+**Status Codes**:
+- 200: Service is healthy
+- 503: Service is unhealthy (one or more dependencies unavailable)

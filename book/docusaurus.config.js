@@ -11,8 +11,10 @@ const config = {
     v4: true,
   },
 
-  // Your GitHub Pages site URL
-  url: 'https://hinaRamzanalvi.github.io',
+  // Set the production url of your site here
+  url: 'https://HinaRamzanalvi.github.io',
+  // Set the /<baseUrl>/ pathname under which your site is served
+  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book/',
 
   // GitHub pages deployment config
@@ -81,46 +83,54 @@ const config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Course Modules',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Module 1: Robotic Nervous System (ROS 2)',
+              to: '/docs/module1_ros2',
+            },
+            {
+              label: 'Module 2: The Digital Twin (Gazebo & Unity)',
+              to: '/docs/module2_digital_twin',
+            },
+            {
+              label: 'Module 3: AI-Robot Brain (NVIDIA Isaac)',
+              to: '/docs/module3_ai_robot_brain',
+            },
+            {
+              label: 'Module 4: Vision-Language-Action (VLA)',
+              to: '/docs/module4_vla',
+            },
+            {
+              label: 'Module 5: RAG Chatbots for Robotics',
+              to: '/docs/module5_rag_chatbots',
+            },
+          ],
+        },
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'GitHub Repository',
+              href: 'https://github.com/HinaRamzanalvi/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book',
+            },
+            {
+              label: 'Documentation',
               to: '/docs/intro',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Connect',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/HinaRamzanalvi/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book',
+              label: 'Report Issues',
+              href: 'https://github.com/HinaRamzanalvi/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book/issues',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Course. Built with Docusaurus.`,
+      copyright: `Made by Hina Alvi | Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Course. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

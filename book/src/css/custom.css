@@ -184,3 +184,101 @@
 [data-theme='dark'] .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-color-gray-800);
 }
+\
+
+]
+
+/* Explore Module Button Styles */
+.moduleCard .button {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.moduleCard .button:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.moduleCard .button:active {
+  transform: translateY(0);
+}
+
+/* Alternative color options for different modules */
+.button--module1 {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.button--module1:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}
+
+.button--module2 {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+}
+
+.button--module2:hover {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+.button--module3 {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.button--module3:hover {
+  background-color: #059669;
+  border-color: #059669;
+}
+
+.button--module4 {
+  background-color: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.button--module4:hover {
+  background-color: #d97706;
+  border-color: #d97706;
+}
+
+.button--module5 {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+
+.button--module5:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+/* Hero section secondary button styling */
+.button--secondary {
+  background-color: #f59e0b !important; /* Amber color */
+  border-color: #f59e0b !important;
+  color: white !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 8px !important;
+  font-size: 1.2rem !important;
+  transition: 0.2s ease-in-out !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+}
+
+.button--secondary:hover {
+  background-color: #d97706 !important; /* Darker amber on hover */
+  border-color: #d97706 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+}

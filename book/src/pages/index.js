@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import RagChatbot from '@site/src/components/RagChatbot';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -57,6 +58,11 @@ const LatestModules = [
     description: 'Empower robots to understand and act on human voice and language commands.',
     link: '/docs/module4_vla/',
   },
+  {
+    title: 'Module 5: RAG Chatbots for Robotics',
+    description: 'Learn about Retrieval-Augmented Generation for creating knowledge-aware robotic systems.',
+    link: '/docs/module5_rag_chatbots/',
+  },
 ];
 
 function LatestModulesSection() {
@@ -92,6 +98,7 @@ export default function Home() {
         <HomepageFeatures />
         <LatestModulesSection />
       </main>
+      <RagChatbot />
     </Layout>
   );
 }
