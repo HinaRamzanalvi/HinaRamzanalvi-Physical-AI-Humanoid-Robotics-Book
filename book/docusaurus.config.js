@@ -12,10 +12,10 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://HinaRamzanalvi.github.io',
+  url: 'https://your-vercel-project-url.vercel.app', // This will be your Vercel deployment URL
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book/',
+  // For Vercel deployment, use '/'
+  baseUrl: '/',
 
   // GitHub pages deployment config
   organizationName: 'HinaRamzanalvi', // your GitHub username
