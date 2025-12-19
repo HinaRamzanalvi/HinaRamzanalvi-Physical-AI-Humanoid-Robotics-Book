@@ -184,9 +184,6 @@
 [data-theme='dark'] .theme-doc-sidebar-container {
   border-right: 1px solid var(--ifm-color-gray-800);
 }
-\
-
-]
 
 /* Explore Module Button Styles */
 .moduleCard .button {
@@ -266,19 +263,19 @@
 
 /* Hero section secondary button styling */
 .button--secondary {
-  background-color: #f59e0b !important; /* Amber color */
-  border-color: #f59e0b !important;
-  color: white !important;
-  padding: 0.8rem 2rem !important;
-  border-radius: 8px !important;
-  font-size: 1.2rem !important;
-  transition: 0.2s ease-in-out !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  background-color: #f59e0b; /* Amber color */
+  border-color: #f59e0b;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .button--secondary:hover {
-  background-color: #d97706 !important; /* Darker amber on hover */
-  border-color: #d97706 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;
+  background-color: #d97706; /* Darker amber on hover */
+  border-color: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
