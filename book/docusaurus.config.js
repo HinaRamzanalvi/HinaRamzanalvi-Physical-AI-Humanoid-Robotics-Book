@@ -12,7 +12,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-vercel-project-url.vercel.app', // This will be your Vercel deployment URL
+  url: 'https://hinaramzanalvi-physical-ai-humanoid-robotics-book.vercel.app', // Updated for Vercel deployment
   // Set the /<baseUrl>/ pathname under which your site is served
   // For Vercel deployment, use '/'
   baseUrl: '/',

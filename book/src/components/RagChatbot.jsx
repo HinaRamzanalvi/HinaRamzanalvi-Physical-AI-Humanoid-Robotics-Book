@@ -20,7 +20,7 @@ const RagChatbot = () => {
       // If we have a stored session ID, validate it by making a test request
       if (storedSessionId) {
         try {
-          const testResponse = await fetch('http://localhost:9000/api/v1/chat/query', {
+          const testResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const RagChatbot = () => {
 
   const createNewSession = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/v1/chat/query', {
+      const response = await fetch('http://localhost:8000/api/v1/chat/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,7 +143,7 @@ const RagChatbot = () => {
         requestBody.session_id = sessionId;
       }
 
-      const response = await fetch('http://localhost:9000/api/v1/chat/query', {
+      const response = await fetch('http://localhost:8000/api/v1/chat/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -175,7 +175,7 @@ const RagChatbot = () => {
             console.warn('Session creation failed, sending request without session_id');
           }
 
-          const retryResponse = await fetch('http://localhost:9000/api/v1/chat/query', {
+          const retryResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ const RagChatbot = () => {
               // Don't include any session_id to force backend to create a new session
             };
 
-            const finalResponse = await fetch('http://localhost:9000/api/v1/chat/query', {
+            const finalResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
