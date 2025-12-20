@@ -5,6 +5,7 @@
       "src": "book/package.json",
       "use": "@vercel/static-build",
       "config": {
+        "rootDir": "book",
         "distDir": "build"
       }
     }
@@ -12,7 +13,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/book/build/index.html"
+      "dest": "/index.html"
     }
   ],
   "cleanUrls": true,
