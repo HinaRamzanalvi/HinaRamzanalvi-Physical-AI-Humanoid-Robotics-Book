@@ -6,15 +6,18 @@ const config = {
   title: 'Physical AI & Humanoid Robotics Course',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
+  url: 'https://your-site.vercel.app',
+  baseUrl: '/',
+
 
   future: {
     v4: true,
   },
 
   // Set the production url of your site here
-  url: '/',
+  
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  
 
   // GitHub pages deployment config
   organizationName: 'HinaRamzanalvi', // your GitHub username
