@@ -6,7 +6,7 @@ const config = {
   title: 'Physical AI & Humanoid Robotics Course',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
-  url: '/',
+  url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app',
   baseUrl: '/',
 
   future: {
