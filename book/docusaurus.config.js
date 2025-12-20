@@ -9,15 +9,12 @@ const config = {
   url: '/',
   baseUrl: '/',
 
-
   future: {
     v4: true,
   },
 
   // Set the production url of your site here
-
   // Set the /<baseUrl>/ pathname under which your site is served
-  
 
   // GitHub pages deployment config
   organizationName: 'HinaRamzanalvi', // your GitHub username
@@ -54,7 +51,6 @@ const config = {
       },
     ],
   ],
-
 
 
   themeConfig: {
