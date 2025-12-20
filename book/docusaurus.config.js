@@ -14,6 +14,11 @@ const config = {
     v4: true,
   },
 
+  // Additional configuration for the RagChatbot
+  customFields: {
+    apiUrl: process.env.API_URL || 'http://localhost:8000',
+  },
+
   // Set the production url of your site here
   // Set the /<baseUrl>/ pathname under which your site is served
 

@@ -15,12 +15,21 @@ const RagChatbot = () => {
   // Initialize session
   useEffect(() => {
     const initializeSession = async () => {
+      // Get the API base URL from environment or default
+      const apiBaseUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'http://localhost:8000';
+
+      // Only proceed if API URL is configured (not empty)
+      if (!apiBaseUrl.trim()) {
+        console.warn('RAG Chatbot: API URL not configured, chatbot will be in offline mode');
+        return;
+      }
+
       const storedSessionId = localStorage.getItem('ragChatbotSessionId');
 
       // If we have a stored session ID, validate it by making a test request
       if (storedSessionId) {
         try {
-          const testResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
+          const testResponse = await fetch(`${apiBaseUrl}/api/v1/chat/query`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -44,12 +53,12 @@ const RagChatbot = () => {
             }
           }
         } catch (error) {
-          // If there's a network error or other issue, clear the stored session and create new
-          localStorage.removeItem('ragChatbotSessionId');
-          await createNewSession();
+          console.warn('RAG Chatbot: Network error, running in offline mode', error);
+          // If there's a network error, don't clear the stored session, just warn
+          setSessionId(storedSessionId);
         }
       } else {
-        // No stored session, create a new one
+        // No stored session, try to create a new one
         await createNewSession();
       }
     };
@@ -58,8 +67,17 @@ const RagChatbot = () => {
   }, []);
 
   const createNewSession = async () => {
+    // Get the API base URL from environment or default
+    const apiBaseUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'http://localhost:8000';
+
+    // Only proceed if API URL is configured (not empty)
+    if (!apiBaseUrl.trim()) {
+      console.warn('RAG Chatbot: API URL not configured, cannot create new session');
+      return null;
+    }
+
     try {
-      const response = await fetch('http://localhost:8000/api/v1/chat/query', {
+      const response = await fetch(`${apiBaseUrl}/api/v1/chat/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,6 +137,22 @@ const RagChatbot = () => {
 
     if (!inputValue.trim() || isLoading) return;
 
+    // Get the API base URL from environment or default
+    const apiBaseUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'http://localhost:8000';
+
+    // Check if API URL is configured
+    if (!apiBaseUrl.trim()) {
+      const errorMessage = {
+        id: Date.now().toString(),
+        text: 'Chatbot is currently unavailable as the backend API is not configured. The documentation content is still available.',
+        sender: 'bot',
+        timestamp: new Date(),
+        isError: true,
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      return;
+    }
+
     // Add user message to UI immediately
     const userMessage = {
       id: Date.now().toString(),
@@ -143,7 +177,7 @@ const RagChatbot = () => {
         requestBody.session_id = sessionId;
       }
 
-      const response = await fetch('http://localhost:8000/api/v1/chat/query', {
+      const response = await fetch(`${apiBaseUrl}/api/v1/chat/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -175,7 +209,8 @@ const RagChatbot = () => {
             console.warn('Session creation failed, sending request without session_id');
           }
 
-          const retryResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
+          const apiBaseUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'http://localhost:8000';
+          const retryResponse = await fetch(`${apiBaseUrl}/api/v1/chat/query`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -192,7 +227,8 @@ const RagChatbot = () => {
               // Don't include any session_id to force backend to create a new session
             };
 
-            const finalResponse = await fetch('http://localhost:8000/api/v1/chat/query', {
+            const apiBaseUrl = process.env.REACT_APP_API_URL || process.env.API_URL || 'http://localhost:8000';
+            const finalResponse = await fetch(`${apiBaseUrl}/api/v1/chat/query`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
