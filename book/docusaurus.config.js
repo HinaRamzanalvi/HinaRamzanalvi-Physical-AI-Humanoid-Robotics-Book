@@ -6,15 +6,18 @@ const config = {
   title: 'Physical AI & Humanoid Robotics Course',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
+  url: '/',
+  baseUrl: '/',
+
 
   future: {
     v4: true,
   },
 
   // Set the production url of your site here
-  url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app/',
+
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  
 
   // GitHub pages deployment config
   organizationName: 'HinaRamzanalvi', // your GitHub username
