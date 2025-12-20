@@ -12,7 +12,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app/',
+  url: '/',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 
