@@ -1,41 +1,44 @@
-# Website
+---
+title: Physical AI & Humanoid Robotics Course
+emoji: 🤖
+colorFrom: blue
+colorTo: red
+sdk: static
+pinned: false
+license: mit
+---
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+# Physical AI & Humanoid Robotics Course
 
-## Installation
+This space hosts the Physical AI & Humanoid Robotics Course documentation built with Docusaurus.
 
-```bash
-yarn
-```
+## About
 
-## Local Development
+This repository contains educational materials for a course on Physical AI and Humanoid Robotics, covering topics including:
+- Robotic Nervous System (ROS 2)
+- The Digital Twin (Gazebo & Unity)
+- AI-Robot Brain (NVIDIA Isaac)
+- Vision-Language-Action (VLA)
+- RAG Chatbots for Robotics
 
-```bash
-yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
-
-```bash
-yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+## Setup
 
 ```bash
-USE_SSH=true yarn deploy
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+# Build the static site
+npm run build
 ```
 
-Not using SSH:
+## Built With
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+- [Docusaurus](https://docusaurus.io/)
+- [React](https://reactjs.org/)
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## How to Deploy to Hugging Face Spaces
+
+This repository is configured to work with Hugging Face Spaces using the static SDK. Simply create a new Space and point it to this repository.

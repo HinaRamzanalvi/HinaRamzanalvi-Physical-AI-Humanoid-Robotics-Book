@@ -1,0 +1,8 @@
+# Hugging Face Space Configuration
+# This configuration sets up the Space to serve the Docusaurus documentation
+
+runtime:
+  huggingface: static
+  # Using static runtime for Docusaurus site
+
+app_port: 7860  # Standard port for Gradio apps, but will be adapted for static content
