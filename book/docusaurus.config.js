@@ -6,8 +6,9 @@ const config = {
   title: 'Physical AI & Humanoid Robotics Course',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
+  
   url: 'https://hinaramzanalvi.github.io',
-  baseUrl: '/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book/',
+  baseUrl: '/',
   trailingSlash: false,
 
   future: {
