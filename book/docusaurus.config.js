@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
   
   url: 'https://hinaramzanalvi.github.io',
-  baseUrl: '/',
+  baseUrl: '/HinaRamzanalvi-Physical-AI-Humanoid-Robotics-Book/',
   trailingSlash: false,
 
   future: {
