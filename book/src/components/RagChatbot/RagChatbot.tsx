@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useDocusaurusContext } from '@docusaurus/useDocusaurusContext';
 import { Message, ChatResponse, ChatRequest, Citation } from './types';
 import TextSelectionHandler from './TextSelectionHandler';
 import styles from './RagChatbot.module.css';
@@ -14,6 +15,10 @@ const RagChatbotComponent: React.FC = () => {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  const { siteConfig } = useDocusaurusContext();
+  const customFields = siteConfig?.customFields || {};
+  const apiUrlFromConfig = customFields.apiUrl as string || 'http://127.0.0.1:8000';
 
   // Debug logging for state changes
   useEffect(() => {
@@ -61,6 +66,15 @@ const RagChatbotComponent: React.FC = () => {
 
   const createNewSession = async () => {
     console.log('Starting createNewSession function'); // Debug logging
+
+    // Check if we have an API URL configured via Docusaurus config
+    const apiUrl = apiUrlFromConfig;
+    if (apiUrl === 'http://127.0.0.1:8000' || apiUrl === 'http://localhost:8000') {
+      console.warn('No production API URL configured, using localhost');
+      // Don't attempt to create a session in offline mode
+      return;
+    }
+
     try {
       const requestBody = {
         query_text: 'New session started',
@@ -72,7 +86,7 @@ const RagChatbotComponent: React.FC = () => {
 
       console.log('Creating new session with request:', requestBody); // Debug logging
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/v1/chat/query`, {
+      const response = await fetch(`${apiUrl}/api/v1/chat/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -93,6 +107,7 @@ const RagChatbotComponent: React.FC = () => {
       }
     } catch (error) {
       console.error('Error creating session:', error);
+      // Don't show error to user for session creation, just log it
     }
     console.log('Completed createNewSession function'); // Debug logging
   };
@@ -120,6 +135,33 @@ const RagChatbotComponent: React.FC = () => {
 
     if (!inputValue.trim() || isLoading) return;
 
+    // Check if API is configured via Docusaurus config
+    const apiUrl = apiUrlFromConfig;
+    if (apiUrl === 'http://127.0.0.1:8000' || apiUrl === 'http://localhost:8000') {
+      // Add user message to UI
+      const userMessage: Message = {
+        id: Date.now().toString(),
+        text: inputValue,
+        sender: 'user',
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, userMessage]);
+      setInputValue('');
+
+      // Add offline mode message
+      const offlineMessage: Message = {
+        id: Date.now().toString(),
+        text: 'Offline mode: The backend API is not configured. Please contact the site administrator to properly configure the backend API.',
+        sender: 'bot',
+        timestamp: new Date(),
+        isError: true,
+      };
+
+      setMessages(prev => [...prev, offlineMessage]);
+      return;
+    }
+
     // Add user message to UI immediately
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -143,7 +185,7 @@ const RagChatbotComponent: React.FC = () => {
 
       console.log('Sending request to backend:', requestBody); // Debug logging
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/v1/chat/query`, {
+      const response = await fetch(`${apiUrl}/api/v1/chat/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -310,6 +352,11 @@ const RagChatbotComponent: React.FC = () => {
               <div className={styles.welcomeMessage}>
                 <p>Hello! I'm your RAG Chatbot for the Physical AI & Humanoid Robotics textbook.</p>
                 <p>Ask me anything about the textbook content!</p>
+                {apiUrlFromConfig === 'http://127.0.0.1:8000' || apiUrlFromConfig === 'http://localhost:8000' ? (
+                  <p className={styles.offlineNotice}>
+                    <strong>Note:</strong> Backend API not configured. Chat responses will show an offline message.
+                  </p>
+                ) : null}
               </div>
             ) : (
               messages.map((message) => (
