@@ -9,19 +9,14 @@ const config = {
   
   url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app',
   baseUrl: '/',
-  trailingSlash: false,
 
   future: {
     v4: true,
   },
 
-  // Additional configuration for the RagChatbot
-  customFields: {
-    apiUrl: process.env.API_URL || process.env.BACKEND_URL || 'http://127.0.0.1:8000',
-  },
-
   // Set the production url of your site here
   // Set the /<baseUrl>/ pathname under which your site is served
+  
 
   // GitHub pages deployment config
   organizationName: 'HinaRamzanalvi', // your GitHub username
@@ -30,7 +25,6 @@ const config = {
   trailingSlash: false, // recommended for GitHub Pages
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -59,6 +53,7 @@ const config = {
       },
     ],
   ],
+
 
 
   themeConfig: {
