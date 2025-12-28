@@ -8,7 +8,7 @@ const config = {
   favicon: 'img/favicon.ico',
   
   url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app',
-  baseUrl: '/',
+  baseUrl: '/docs',
   trailingSlash: false,
 
   future: {
