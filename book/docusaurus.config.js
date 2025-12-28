@@ -7,8 +7,8 @@ const config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
   
-  url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app',
-  baseUrl: '/docs',
+  url: 'https://hina-ramzanalvi-physical-ai-humanoi.vercel.app/',
+  baseUrl: '/',
   trailingSlash: false,
 
   future: {
